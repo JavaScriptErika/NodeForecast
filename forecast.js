@@ -2,11 +2,10 @@
 
 const http = require('http');
 
-let body = '';
-const area = process.argv.slice(2);
-
 const getZipcode = function (zipcode) {
 	http.get(`http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=867d2e500164f090eaf4c55feba436b2&units=imperial&zip=${zipcode},us`, (response) => {
+
+		let body = '';
 
 		response.on('data', (dataChunk) => {
 			body += dataChunk;
@@ -25,4 +24,4 @@ function printForecast(currentWeather) {
 
 }
 
-getZipcode(area);
+module.exports.zip = getZipcode;
