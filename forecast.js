@@ -6,7 +6,7 @@ const printForecast = (currentWeather) => {
 	console.log(`Current conditions: ${currentWeather.weather[0].description} | ${currentWeather.main.temp} °F`);
 }
 
-const getZipcode = function (zipcode) {
+const getZipcode = (zipcode) => {
 	try { //catches thrown error if url is malformed
 		const request = http.get(`http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=867d2e500164f090eaf4c55feba436b2&units=imperial&zip=${zipcode},us`, (response) => {
 			let body = '';
